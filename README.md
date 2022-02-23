@@ -15,7 +15,7 @@ Example response:
 ```
 
 ## Setup
-1. Copy `.env.example` to `.env` and replace the username and password to the desired credentials to the MongoDB database
+1. Copy `.env.example` to `.env` and replace the username and password to the desired credentials to the MongoDB database along with the database name (which will run in Docker, not a pre-existing database).
 2. Adjust `FETCH_INTERVAL` to configure how frequently the server reaches out to EthGasStation for new predictions (in seconds).
 3. Run `docker-compose -f docker-compose.prod.yml up` to run in production mode.
     - If you would like to run in development mode, run `docker-compose up` instead. This will watch and reload the code on changes and will enable debug logs.
