@@ -9,6 +9,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+ignorePatterns: ["dist/*"]
 rules: {
   "import/extensions": [
       "error",
@@ -19,7 +20,9 @@ rules: {
         "ts": "never",
         "tsx": "never"
       }
-   ],
+   ]
+}
+settings: {
   "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]

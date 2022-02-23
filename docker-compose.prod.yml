@@ -7,29 +7,25 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
       - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
-    ports:
-      - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     volumes:
       - db:/data/db
   app:
     depends_on:
       - mongodb
     build: ./app
-    command: npm run dev
+    command: npm start
     restart: unless-stopped
     env_file: ./.env
     ports:
-      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - 0.0.0.0:$NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
       - DB_HOST=mongodb
       - DB_USER=$MONGODB_USER
       - DB_PASSWORD=$MONGODB_PASSWORD
       - DB_NAME=$MONGODB_DATABASE
       - DB_PORT=$MONGODB_DOCKER_PORT
-      - NODE_ENV=development
+      - NODE_ENV=production
     stdin_open: true
     tty: true
-    volumes:
-      - ./app/:/app/
 volumes:
   db:
