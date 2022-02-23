@@ -1,5 +1,5 @@
 # EtherEye
-An HTTP server used to keep an eye on gas prices for Ethereum on the latest block.
+An HTTP server used to keep an eye on gas prices for Ethereum.
 
 ## Usage
  - `/gas`
