@@ -18,6 +18,7 @@ app.get('/gas', handleGas);
 app.get('/average', handleAverage);
 
 // Auto fetch gas prices every x seconds
+Logger.debug(`Fetching gas price every ${FETCH_INTERVAL} seconds.`);
 setInterval(storeGas, FETCH_INTERVAL * 1000);
 
 app.listen(DOCKER_PORT, async () => {
